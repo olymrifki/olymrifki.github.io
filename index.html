@@ -1,58 +1,19 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-
-  <title>My Projects :)</title>
-
-</head>
-
-<body>
-  <div class="flex flex-col h-screen justify-between">
-    <nav class="flex px-3 items-center justify-between h-12 w-full bg-gray-300">
-      <a class="flex justify-center items-center" href="#">
-        Testing
-      </a>
-      <div class="flex justify-center items-center gap-2">
-        <a class="flex justify-center items-center" href="#"><span class="mr-1 font-thin material-icons-outlined">
-            home
-          </span> Home</a>
-        <hr>
-        <a class="flex justify-center items-center" href="#"><span class="mr-1 font-thin material-icons-outlined">
-            badge
-          </span> Projects</a>
-        <hr>
-        <a class="flex justify-center items-center" href="#"><span class="mr-1 font-thin material-icons-outlined">
-            contact_page
-          </span> Contacts</a>
-      </div>
-    </nav>
-
-
-    <main class="px-3 mb-auto">
-      <div class="">
-        <div class="">
-          <h1>I will put something here, soon.</h1>
-          <p>Just an assiganment for now</p>
-        </div>
-      </div>
-    </main>
-
-
-
-
-
-    <footer class="px-3 w-full h-10 flex justify-center items-center bg-gray-300">
-      I 123
-    </footer>
-  </div>
-</body>
-
-</html>
+<!doctype HTML><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script><script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script><title>My Projects 123 :)</title></head><body><div class="flex flex-col h-screen justify-between"><nav class="flex px-3 items-center justify-between h-12 w-full bg-gray-300"><a class="flex justify-center items-center" href="#">Testing</a><div class="flex justify-center items-center gap-2"><a class="flex justify-center items-center" href="#"><span class="mr-1 font-thin material-icons-outlined">home</span> Home</a><hr><a class="flex justify-center items-center" href="#"><span class="mr-1 font-thin material-icons-outlined">badge</span> My Projects</a><hr><a class="flex justify-center items-center" href="#"><span class="mr-1 font-thin material-icons-outlined">contact_page</span> Contactss</a></div></nav><main class="px-3 mb-auto"><div class=""><div class=""><h1>I will put something here, soon.</h1><p>Just an assiganment for now</p><div><button hx-swap="outerHTML" class="p-2 border" hx-get="./static/loadme.html">load</button></div></div></div></main><footer x-data="appFooterComponent()" x-init="init()" @destroy="cleanup" class="px-3 w-full h-10 flex justify-center items-center bg-gray-300">Here is a clock to use some of your computation power :) <span id="clock" class="pl-3" x-text="getTime()"></span></footer><script>
+	function appFooterComponent() {
+		let intervalId;
+		return {
+			time: new Date(),
+			init() {
+				intervalId = setInterval(() => {
+					this.time = new Date();
+				}, 1000);
+			},
+			cleanup() {
+				clearInterval(intervalId);
+			},
+			getTime() {
+				return this.time.toTimeString().split(' ')[0];
+			},
+		};
+	}
+</script></div></body></html>
